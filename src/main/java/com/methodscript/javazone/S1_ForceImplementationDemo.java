@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.laytonsmith.javazone;
 
-import com.laytonsmith.PureUtilities.Common.Annotations.ForceImplementation;
+package com.methodscript.javazone;
+
+import com.methodscript.PureUtilities.Common.Annotations.ForceImplementation;
 
 /**
  *
  * @author Cailin
  */
-public class ForceImplementationDemo {
+public class S1_ForceImplementationDemo {
     public static abstract class BaseClass {
 //        @ForceImplementation
         protected BaseClass(String s, Object o) {
@@ -24,13 +20,13 @@ public class ForceImplementationDemo {
         }
     }
     
-    public static class SubClass1 extends BaseClass {
+    public static class SubClass extends BaseClass {
         
 //        public SubClass1(String s, Object o) {
 //            super(s, o);
 //        }
         
-        public SubClass1() {
+        public SubClass() {
             super("", null);
         }
 
@@ -41,11 +37,11 @@ public class ForceImplementationDemo {
                 
     }
     
-//    public static class SubSubClass extends SubClass1 {
+//    public static class SubSubClass extends SubClass {
 //        
 //    }
     
     public static void main(String[] args) {
-        new SubClass1().method();
+        new SubClass().method();
     }
 }
