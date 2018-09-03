@@ -19,6 +19,9 @@ public class S2_ExhaustiveVisitorDemo {
 
     public static class ThirdSubclass implements MyInterface {
     }
+    
+//    public static class FourthSubclass implements MyInterface { 
+//    }
 
     public static class MyVisitor1 extends ExhaustiveVisitor<MyInterface, Void> {
 

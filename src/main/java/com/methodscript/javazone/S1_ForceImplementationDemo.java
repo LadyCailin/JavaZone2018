@@ -22,7 +22,7 @@ public class S1_ForceImplementationDemo {
     
     public static class SubClass extends BaseClass {
         
-//        public SubClass1(String s, Object o) {
+//        public SubClass(String s, Object o) {
 //            super(s, o);
 //        }
         
@@ -43,5 +43,18 @@ public class S1_ForceImplementationDemo {
     
     public static void main(String[] args) {
         new SubClass().method();
+    }
+    
+    public static interface MyInterface {
+        @ForceImplementation
+        void myMethod();
+    }
+    
+    public static class A implements MyInterface {
+        public void myMethod() {}        
+    }
+    
+    public static class B extends A {
+        public void myMethod() {}
     }
 }

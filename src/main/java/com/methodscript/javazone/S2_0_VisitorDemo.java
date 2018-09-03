@@ -81,5 +81,15 @@ public class S2_0_VisitorDemo {
         MyInterfaceVisitor visitor = new MyVisitor2();
         //MyInterface mi = new ThirdSubclass();
         visitor.handle(new ThirdSubclass());
+        
+//        if(visitor instanceof FirstSubclass) {
+//            //
+//        } else if(visitor instanceof SecondSubclass) {
+//            //
+//        } else if(visitor instanceof ThirdSubclass) {
+//            //
+//        } else {
+//            throw new RuntimeException();
+//        }
     }
 }
