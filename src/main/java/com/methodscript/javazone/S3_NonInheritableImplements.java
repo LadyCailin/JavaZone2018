@@ -18,11 +18,11 @@ public class S3_NonInheritableImplements {
     public static class A {
     }
     
-    @NonInheritImplements(MyInterface.class)
+//    @NonInheritImplements(MyInterface.class)
     public static class B extends A {        
-        public void aMethod() {
-            System.out.println("Hello World!");
-        }
+//        public void aMethod() {
+//            System.out.println("Hello World!");
+//        }
     }
     
     public static class C extends B {

@@ -8,15 +8,15 @@ import com.methodscript.PureUtilities.Common.Annotations.ForceImplementation;
  * @author Cailin
  */
 public class S1_ForceImplementationDemo {
-    public static abstract class BaseClass {
+    public static class BaseClass {
 //        @ForceImplementation
         protected BaseClass(String s, Object o) {
             //
         }
         
 //        @ForceImplementation
-        public void method() {
-            System.out.println("In BaseClass");
+        public BaseClass customClone() {
+            return new BaseClass("", null);
         }
     }
     
@@ -30,11 +30,11 @@ public class S1_ForceImplementationDemo {
             super("", null);
         }
 
+        
 //        @Override
-//        public void method() {
-//            System.out.println("In SubClass");
-//        }
-                
+//        public SubClass customClone() {
+//            return new SubClass();
+//        }              
     }
     
 //    public static class SubSubClass extends SubClass {
@@ -42,7 +42,7 @@ public class S1_ForceImplementationDemo {
 //    }
     
     public static void main(String[] args) {
-        new SubClass().method();
+        new SubClass().customClone();
     }
     
     public static interface MyInterface {
