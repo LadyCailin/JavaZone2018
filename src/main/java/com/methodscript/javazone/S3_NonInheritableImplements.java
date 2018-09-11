@@ -10,38 +10,39 @@ import static com.methodscript.PureUtilities.Common.Annotations.NonInheritImplem
  * @author Cailin
  */
 public class S3_NonInheritableImplements {
-    
-    public static interface MyInterface {
-        void aMethod();
+
+    public static interface CustomCloneable {
+        Object customClone();
     }
-    
+
     public static class A {
     }
-    
-//    @NonInheritImplements(MyInterface.class)
-    public static class B extends A {        
-//        public void aMethod() {
+
+//    @NonInheritImplements(CustomCloneable.class)
+    public static class B extends A {
+//        public Object customClone() {
 //            System.out.println("Hello World!");
+//            return new B();
 //        }
     }
-    
+
     public static class C extends B {
-        
+
     }
-    
+
     public static void main(String[] args) {
         A a = new A();
         B b = new B();
         C c = new C();
-        
-        System.out.println("nii instanceof a: " + NonInheritImplements.Helper.Instanceof(a, MyInterface.class));
-        System.out.println("nii instanceof b: " + Instanceof(b, MyInterface.class));
-        System.out.println("nii instanceof c: " + Instanceof(c, MyInterface.class));
-        System.out.println("instanceof a    : " + (a instanceof MyInterface));
-        System.out.println("instanceof b    : " + (b instanceof MyInterface));
-        System.out.println("instanceof c    : " + (c instanceof MyInterface));
-        
-//        MyInterface mb = Cast(MyInterface.class, b);
-//        mb.aMethod();
+
+        System.out.println("nii instanceof a: " + NonInheritImplements.Helper.Instanceof(a, CustomCloneable.class));
+        System.out.println("nii instanceof b: " + Instanceof(b, CustomCloneable.class));
+        System.out.println("nii instanceof c: " + Instanceof(c, CustomCloneable.class));
+        System.out.println("instanceof a    : " + (a instanceof CustomCloneable));
+        System.out.println("instanceof b    : " + (b instanceof CustomCloneable));
+        System.out.println("instanceof c    : " + (c instanceof CustomCloneable));
+
+//        CustomCloneable mb = Cast(CustomCloneable.class, c);
+//        mb.customClone();
     }
 }

@@ -8,53 +8,53 @@ import com.methodscript.PureUtilities.ExhaustiveVisitor;
  */
 public class S2_ExhaustiveVisitorDemo {
 
-    public static interface MyInterface {
+    public static interface CarPart {
     }
 
-    public static class FirstSubclass implements MyInterface {
+    public static class Wheel implements CarPart {
     }
 
-    public static class SecondSubclass implements MyInterface {
+    public static class Engine implements CarPart {
     }
 
-    public static class ThirdSubclass implements MyInterface {
+    public static class Body implements CarPart {
     }
-    
-//    public static class FourthSubclass implements MyInterface { 
+
+//    public static class BrakeLights implements CarPart {
 //    }
 
-    public static class MyVisitor1 extends ExhaustiveVisitor<MyInterface, Void> {
+    public static class PartInspectorVisitor extends ExhaustiveVisitor<CarPart, Void> {
 
-        public void visit(FirstSubclass obj) {
-            System.out.println("MyVisitor1 FirstSubclass");            
-        }
-        
-        public void visit(SecondSubclass obj) {
-            System.out.println("MyVisitor1 SecondSubclass");
+        public void visit(Wheel c) {
+            System.out.println("PartInspector Wheel");
         }
 
-        public void visit(ThirdSubclass obj) {
-            System.out.println("MyVisitor1 ThirdSubclass");
+        public void visit(Engine c) {
+            System.out.println("PartInspector Engine");
+        }
+
+        public void visit(Body c) {
+            System.out.println("PartInspector Body");
         }
     }
-    
-    public static class MyVisitor2 extends ExhaustiveVisitor<MyInterface, Void> {
-        public void visit(FirstSubclass obj) {
-            System.out.println("MyVisitor2 FirstSubclass");            
-        }
-        
-        public void visit(SecondSubclass obj) {
-            System.out.println("MyVisitor2 SecondSubclass");
+
+    public static class PartFixerVisitor extends ExhaustiveVisitor<CarPart, Void> {
+        public void visit(Wheel c) {
+            System.out.println("PartFixer Wheel");
         }
 
-        public void visit(ThirdSubclass obj) {
-            System.out.println("MyVisitor2 ThirdSubclass");
+        public void visit(Engine c) {
+            System.out.println("PartFixer Engine");
+        }
+
+        public void visit(Body c) {
+            System.out.println("PartFixer Body");
         }
     }
-    
+
     public static void main(String[] args) {
-        ExhaustiveVisitor<MyInterface, Void> e = new MyVisitor1();
-        MyInterface m = new FirstSubclass();
+        ExhaustiveVisitor<CarPart, Void> e = new PartInspectorVisitor();
+        CarPart m = new Wheel();
         e.visit(m);
     }
 }
